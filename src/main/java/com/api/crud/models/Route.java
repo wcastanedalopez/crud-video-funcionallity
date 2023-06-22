@@ -21,18 +21,30 @@ public class Route {
 //    @Column
 //    private String team_string;
 
-    @ManyToOne
-    private Team team;
+//    @ManyToOne
+//    private Team team;
 
-    public Route(Long id, String name, String sector, String sede) {
+    @ManyToOne()
+    private Assignment assignment;
+
+
+    public Route(Long id, String name, String sector, String sede, Assignment assignment) {
         this.id = id;
         this.name = name;
         this.sector = sector;
         this.sede = sede;
-
+        this.assignment = assignment;
     }
 
     public Route() {
+    }
+
+    public Assignment getAssignment() {
+        return assignment;
+    }
+
+    public void setAssignment(Assignment assignment) {
+        this.assignment = assignment;
     }
 
     public String getName() {

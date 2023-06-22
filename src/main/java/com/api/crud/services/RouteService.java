@@ -12,40 +12,41 @@ import java.util.Optional;
 public class RouteService {
 
     @Autowired
-    IRouteRepository userRepository;
+    IRouteRepository routeRepository;
 
     public List<Route> getRoutes () {
-        List<Route> all = userRepository.findAll();
+        List<Route> all = routeRepository.findAll();
         return all;
     }
 
     public List<Route> saveRoutes (List<Route> listRoutes) {
-        List<Route> all = userRepository.saveAll(listRoutes);
+        List<Route> all = routeRepository.saveAll(listRoutes);
         return all;
     }
 
 
     public Route saveRoute (Route route) {
-        return userRepository.save(route);
+        return routeRepository.save(route);
     }
 
     public Optional<Route> getById (Long id) {
-        return userRepository.findById(id);
+        return routeRepository.findById(id);
     }
 
     public Route updateById (Route request, Long id) {
-        Route aux = userRepository.findById(id).get();
+        Route aux = routeRepository.findById(id).get();
         aux.setName(request.getName());
         aux.setSector(request.getSector());
         aux.setSede(request.getSede());
-        userRepository.save(aux);
+        aux.setAssignment(request.getAssignment());
+        routeRepository.save(aux);
         return aux;
 
     }
 
     public Boolean deleteById (Long id) {
          try {
-             userRepository.deleteById(id);
+             routeRepository.deleteById(id);
              return true;
          }catch (Exception e) {
              return false;
@@ -53,7 +54,7 @@ public class RouteService {
     }
     public Boolean deleteAll () {
         try {
-            userRepository.deleteAll();
+            routeRepository.deleteAll();
             return true;
         }catch (Exception e) {
             return false;

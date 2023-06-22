@@ -30,11 +30,11 @@ public class EmployedService {
         return employedRepository.save(employed);
     }
 
-    public Optional<Employed> getById (Long id) {
+    public Optional<Employed> getById (Integer id) {
         return employedRepository.findById(id);
     }
 
-    public Employed updateById (Employed request, Long id) {
+    public Employed updateById (Employed request, Integer id) {
         Employed aux = employedRepository.findById(id).get();
         aux.setName(request.getName());
         aux.setPassword(request.getPassword());
@@ -48,7 +48,7 @@ public class EmployedService {
 
     }
 
-    public Boolean deleteById (Long id) {
+    public Boolean deleteById (Integer id) {
         try {
             employedRepository.deleteById(id);
             return true;

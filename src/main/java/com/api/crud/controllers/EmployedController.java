@@ -36,17 +36,17 @@ public class EmployedController {
     }
 
     @GetMapping (path = "/{id}")
-    public Optional<Employed> getEmployedById(@PathVariable Long id) {
+    public Optional<Employed> getEmployedById(@PathVariable Integer id) {
         return this.employedService.getById(id);
     }
 
     @PostMapping(path = "/{id}")
-    public Employed updateEmployedById (@RequestBody Employed employed, Long id ) {
+    public Employed updateEmployedById (@RequestBody Employed employed, Integer id ) {
         return this.employedService.updateById(employed, id);
     }
 
     @DeleteMapping(path = "/{id}")
-    public String deleteEmployedById ( @PathVariable ("id") Long id) {
+    public String deleteEmployedById ( @PathVariable ("id") Integer id) {
         boolean ok = this.employedService.deleteById(id);
 
         if (ok ) {

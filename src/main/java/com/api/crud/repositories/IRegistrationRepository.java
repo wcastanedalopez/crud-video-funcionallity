@@ -1,11 +1,11 @@
 package com.api.crud.repositories;
 
-import com.api.crud.models.Role;
+import com.api.crud.models.Registration;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;
 
 @Repository
-@RepositoryRestResource(path = "roles", collectionResourceRel = "roles")
-public interface IRoleRepository  extends JpaRepository<Role, Long> {
+@RepositoryRestResource(path = "registrations", collectionResourceRel = "registrations")
+public interface IRegistrationRepository  extends JpaRepository<Registration, Long> {
 }

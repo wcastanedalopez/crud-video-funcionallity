@@ -12,7 +12,7 @@ public class Employed {
 //    @GeneratedValue( strategy = GenerationType.IDENTITY)
 //    private Long id;
     @Id
-    private int cc;
+    private Integer cc;
 
     @Column
     private String username;
@@ -43,7 +43,7 @@ public class Employed {
     public Employed() {
     }
 
-    public Employed(int cc, String username, String password, String name, String lastName, String email, Team team, Set<Role> roles) {
+    public Employed(Integer cc, String username, String password, String name, String lastName, String email, Team team, Set<Role> roles) {
         this.cc = cc;
         this.username = username;
         this.password = password;
@@ -111,7 +111,7 @@ public class Employed {
         this.lastName = lastName;
     }
 
-    public int getCc() {
+    public Integer getCc() {
         return cc;
     }
 

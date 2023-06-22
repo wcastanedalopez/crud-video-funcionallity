@@ -39,7 +39,7 @@ public class TeamService {
         Team aux = teamRepository.findById(id).get();
         aux.setName(request.getName());
         aux.setEmployedList(request.getEmployedList());
-        aux.setRoutes(request.getRoutes());
+        aux.setAssignments(request.getAssignments());
         return aux;
 
     }
