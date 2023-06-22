@@ -5,7 +5,6 @@ import com.api.crud.repositories.IRouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -39,7 +38,7 @@ public class RouteService {
         aux.setName(request.getName());
         aux.setSector(request.getSector());
         aux.setSede(request.getSede());
-        aux.setTeam(request.getSede());
+        userRepository.save(aux);
         return aux;
 
     }

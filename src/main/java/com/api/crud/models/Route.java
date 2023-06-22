@@ -9,9 +9,6 @@ public class Route {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private Long id;
-
-
-
     @Column
     private String name;
 
@@ -20,16 +17,19 @@ public class Route {
 
     @Column
     private String sede;
+//
+//    @Column
+//    private String team_string;
 
-    @Column
-    private String team;
+    @ManyToOne
+    private Team team;
 
-    public Route(Long id, String name, String sector, String sede, String team) {
+    public Route(Long id, String name, String sector, String sede) {
         this.id = id;
         this.name = name;
         this.sector = sector;
         this.sede = sede;
-        this.team = team;
+
     }
 
     public Route() {
@@ -59,13 +59,6 @@ public class Route {
         this.sede = sede;
     }
 
-    public String getTeam() {
-        return team;
-    }
-
-    public void setTeam(String team) {
-        this.team = team;
-    }
 
     public void setId(Long id) {
         this.id = id;
