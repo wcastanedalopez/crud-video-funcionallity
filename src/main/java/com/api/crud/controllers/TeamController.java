@@ -1,7 +1,7 @@
 package com.api.crud.controllers;
 
-import com.api.crud.models.Team;
-import com.api.crud.services.TeamService;
+import com.api.crud.entities.Team;
+import com.api.crud.services.TeamServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.*;
@@ -16,36 +16,36 @@ import java.util.Optional;
 public class TeamController {
 
     @Autowired
-    private TeamService teamService;
+    private TeamServiceImpl teamServiceImpl;
 
     @GetMapping
     public List<Team> getRoutes(){
-        return this.teamService.getTeams();
+        return this.teamServiceImpl.getTeams();
     }
 
     @PostMapping
     public Team saveTeam(@RequestBody Team team){
-        return this.teamService.saveTeam(team);
+        return this.teamServiceImpl.saveTeam(team);
     }
 
     @PostMapping(path = "/addList")
     public List<Team> saveByListTeams(@RequestBody List<Team> teams){
-        return this.teamService.saveTeams(teams);
+        return this.teamServiceImpl.saveTeams(teams);
     }
 
     @GetMapping (path = "/{id}")
     public Optional<Team> getRouteById(@PathVariable Long id) {
-        return this.teamService.getById(id);
+        return this.teamServiceImpl.getById(id);
     }
 
     @PostMapping(path = "/{id}")
     public Team updateTeamById (@RequestBody Team team, Long id ) {
-        return this.teamService.updateById(team, id);
+        return this.teamServiceImpl.updateById(team, id);
     }
 
     @DeleteMapping(path = "/{id}")
     public String deleteTeamById ( @PathVariable ("id") Long id) {
-        boolean ok = this.teamService.deleteById(id);
+        boolean ok = this.teamServiceImpl.deleteById(id);
 
         if (ok ) {
             return "Team with id" + id + "has delete";
@@ -56,7 +56,7 @@ public class TeamController {
 
     @DeleteMapping
     public String deleteTeams () {
-        boolean ok = this.teamService.deleteAll();
+        boolean ok = this.teamServiceImpl.deleteAll();
 
         if (ok ) {
             return "All teams were eliminated";

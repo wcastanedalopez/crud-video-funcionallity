@@ -1,4 +1,4 @@
-package com.api.crud.models;
+package com.api.crud.entities;
 
 import jakarta.persistence.*;
 
@@ -18,7 +18,7 @@ public class Team {
 //    private List<Route> routes;
 
     @OneToMany( mappedBy = "team" )
-    private List<Employed> employedList;
+    private List<User> userList;
 
     @OneToMany( mappedBy = "team" )
     private List<Assignment> assignments;
@@ -26,10 +26,10 @@ public class Team {
     public Team() {
     }
 
-    public Team(Long id, String name, List<Employed> employedList, List<Assignment> assignments) {
+    public Team(Long id, String name, List<User> userList, List<Assignment> assignments) {
         this.id = id;
         this.name = name;
-        this.employedList = employedList;
+        this.userList = userList;
         this.assignments = assignments;
     }
 
@@ -57,11 +57,11 @@ public class Team {
         this.name = name;
     }
 
-    public List<Employed> getEmployedList() {
-        return employedList;
+    public List<User> getEmployedList() {
+        return userList;
     }
 
-    public void setEmployedList(List<Employed> employedList) {
-        this.employedList = employedList;
+    public void setEmployedList(List<User> userList) {
+        this.userList = userList;
     }
 }

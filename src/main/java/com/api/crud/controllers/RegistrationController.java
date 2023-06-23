@@ -1,9 +1,7 @@
 package com.api.crud.controllers;
 
-import com.api.crud.models.Registration;
-import com.api.crud.models.Route;
-import com.api.crud.services.RegistrationService;
-import com.api.crud.services.RouteService;
+import com.api.crud.entities.Registration;
+import com.api.crud.services.RegistrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.*;
@@ -19,36 +17,36 @@ public class RegistrationController {
 
 
     @Autowired
-    private RegistrationService registrationService;
+    private RegistrationServiceImpl registrationServiceImpl;
 
     @GetMapping
     public List<Registration> getRegisters(){
-        return this.registrationService.getRegisters();
+        return this.registrationServiceImpl.getRegisters();
     }
 
     @PostMapping
     public Registration saveRegister(@RequestBody Registration register){
-        return this.registrationService.saveRegister(register);
+        return this.registrationServiceImpl.saveRegister(register);
     }
 
     @PostMapping(path = "/addList")
     public List<Registration> saveByListRegisters(@RequestBody List<Registration> registers){
-        return this.registrationService.saveRegisters(registers);
+        return this.registrationServiceImpl.saveRegisters(registers);
     }
 
     @GetMapping (path = "/{id}")
     public Optional<Registration> getRegisterById(@PathVariable Long id) {
-        return this.registrationService.getById(id);
+        return this.registrationServiceImpl.getById(id);
     }
 
     @PostMapping(path = "/{id}")
     public Registration updateRegisterById (@RequestBody Registration register, Long id ) {
-        return this.registrationService.updateById(register, id);
+        return this.registrationServiceImpl.updateById(register, id);
     }
 
     @DeleteMapping(path = "/{id}")
     public String deleteRegisterById ( @PathVariable ("id") Long id) {
-        boolean ok = this.registrationService.deleteById(id);
+        boolean ok = this.registrationServiceImpl.deleteById(id);
 
         if (ok ) {
             return "Register with id" + id + "has delete";
@@ -59,7 +57,7 @@ public class RegistrationController {
 
     @DeleteMapping
     public String deleteRegisters () {
-        boolean ok = this.registrationService.deleteAll();
+        boolean ok = this.registrationServiceImpl.deleteAll();
 
         if (ok ) {
             return "All registers were eliminated";

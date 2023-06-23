@@ -1,9 +1,7 @@
 package com.api.crud.services;
 
-import com.api.crud.models.Registration;
-import com.api.crud.models.Route;
+import com.api.crud.entities.Registration;
 import com.api.crud.repositories.IRegistrationRepository;
-import com.api.crud.repositories.IRouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +10,7 @@ import java.util.Optional;
 
 @Service
 
-public class RegistrationService {
+public class RegistrationServiceImpl {
 
     @Autowired
     IRegistrationRepository registrationRepository;

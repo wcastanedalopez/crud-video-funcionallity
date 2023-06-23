@@ -1,13 +1,14 @@
-package com.api.crud.models;
+package com.api.crud.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
 
 @Entity
-@Table(name = "employees")
-public class Employed {
+@Table(name = "users")
+public class User {
 //    @Id
 //    @GeneratedValue( strategy = GenerationType.IDENTITY)
 //    private Long id;
@@ -18,7 +19,11 @@ public class Employed {
     private String username;
 
     @Column
+    @JsonIgnore
     private String password;
+
+    @Column
+    private String phone;
     @Column
     private String name;
 
@@ -32,26 +37,39 @@ public class Employed {
     private Team team;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "EMPLOYED_ROLES",
+    @JoinTable(name = "USER_ROLES",
             joinColumns = {
-                    @JoinColumn(name = "EMPLOYED_ID")
+                    @JoinColumn(name = "USER_ID")
             },
             inverseJoinColumns = {
                     @JoinColumn(name = "ROLE_ID") })
     private Set<Role> roles;
 
-    public Employed() {
+    public User() {
     }
 
-    public Employed(Integer cc, String username, String password, String name, String lastName, String email, Team team, Set<Role> roles) {
+    public User(Integer cc, String username, String password, String phone, String name, String lastName, String email, Team team, Set<Role> roles) {
         this.cc = cc;
         this.username = username;
         this.password = password;
+        this.phone = phone;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.team = team;
         this.roles = roles;
+    }
+
+    public void setCc(Integer cc) {
+        this.cc = cc;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public String getUsername() {

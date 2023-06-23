@@ -1,4 +1,4 @@
-package com.api.crud.models;
+package com.api.crud.entities;
 
 import jakarta.persistence.*;
 

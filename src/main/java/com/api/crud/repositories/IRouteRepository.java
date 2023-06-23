@@ -1,6 +1,6 @@
 package com.api.crud.repositories;
 
-import com.api.crud.models.Route;
+import com.api.crud.entities.Route;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.stereotype.Repository;

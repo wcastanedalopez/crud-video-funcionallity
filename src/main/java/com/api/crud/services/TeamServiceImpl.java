@@ -1,8 +1,6 @@
 package com.api.crud.services;
 
-import com.api.crud.models.Route;
-import com.api.crud.models.Team;
-import com.api.crud.repositories.IRouteRepository;
+import com.api.crud.entities.Team;
 import com.api.crud.repositories.ITeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class TeamService {
+public class TeamServiceImpl {
 
     @Autowired
     ITeamRepository teamRepository;
