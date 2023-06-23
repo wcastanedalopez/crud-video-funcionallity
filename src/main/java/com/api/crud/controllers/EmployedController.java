@@ -1,7 +1,8 @@
 package com.api.crud.controllers;
 
+import com.api.crud.entities.Employed;
 import com.api.crud.entities.User;
-import com.api.crud.services.EmployedServiceImpl;
+import com.api.crud.services.EmployedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.*;
@@ -9,44 +10,44 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/employed")
 @RepositoryRestResource(path = "employees", collectionResourceRel = "employees")
-@CrossOrigin
 public class EmployedController {
 
     @Autowired
-    private EmployedServiceImpl employedServiceImpl;
+    private EmployedService employedService;
 
 
     @GetMapping
-    public List<User> getEmployees(){
-        return this.employedServiceImpl.getEmployees();
+    public List<Employed> getEmployees(){
+        return this.employedService.getEmployees();
     }
 
     @PostMapping( path = "/add")
-    public User saveRoute(@RequestBody User user){
-        return this.employedServiceImpl.saveEmployed(user);
+    public Employed saveRoute(@RequestBody Employed employed){
+        return this.employedService.saveEmployed(employed);
     }
 
     @PostMapping(path = "/addList")
-    public List<User> saveByListEmployeds(@RequestBody List<User> user){
-        return this.employedServiceImpl.saveEmployees(user);
+    public List<Employed> saveByListEmployeds(@RequestBody List<Employed> employed){
+        return this.employedService.saveEmployees(employed);
     }
 
     @GetMapping (path = "/{id}")
-    public Optional<User> getEmployedById(@PathVariable Integer id) {
-        return this.employedServiceImpl.getById(id);
+    public Optional<Employed> getEmployedById(@PathVariable Integer id) {
+        return this.employedService.getById(id);
     }
 
     @PostMapping(path = "/update/{id}")
-    public User updateEmployedById (@RequestBody User user, Integer id ) {
-        return this.employedServiceImpl.updateById(user, id);
+    public Employed updateEmployedById (@RequestBody Employed employed, Integer id ) {
+        return this.employedService.updateById(employed, id);
     }
 
     @DeleteMapping(path = "/delete/{id}")
     public String deleteEmployedById ( @PathVariable ("id") Integer id) {
-        boolean ok = this.employedServiceImpl.deleteById(id);
+        boolean ok = this.employedService.deleteById(id);
 
         if (ok ) {
             return "Employed with id" + id + "has delete";
@@ -57,7 +58,7 @@ public class EmployedController {
 
     @DeleteMapping( path = "/delete")
     public String deleteEmployees () {
-        boolean ok = this.employedServiceImpl.deleteAll();
+        boolean ok = this.employedService.deleteAll();
 
         if (ok ) {
             return "All Employees were eliminated";

@@ -1,7 +1,7 @@
 package com.api.crud.services;
 
 import com.api.crud.entities.Team;
-import com.api.crud.repositories.ITeamRepository;
+import com.api.crud.repository.ITeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

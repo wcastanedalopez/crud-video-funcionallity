@@ -1,4 +1,4 @@
-package com.api.crud.repositories;
+package com.api.crud.repository;
 
 import com.api.crud.entities.Team;
 import org.springframework.data.jpa.repository.JpaRepository;

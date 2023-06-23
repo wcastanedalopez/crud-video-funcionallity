@@ -1,4 +1,4 @@
-package com.api.crud.repositories;
+package com.api.crud.repository;
 
 import com.api.crud.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RepositoryRestResource(path = "roles", collectionResourceRel = "roles")
 public interface IRoleRepository  extends JpaRepository<Role, Long> {
+    Role findRoleByName(String name);
 }

@@ -1,17 +1,15 @@
 package com.api.crud.entities;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "employees")
+public class Employed {
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private long id;
+    private Integer cc;
 
     @Column
     private String username;
@@ -21,16 +19,18 @@ public class User {
     private String password;
 
     @Column
-    private String email;
-
-    @Column
     private String phone;
-
     @Column
     private String name;
 
     @Column
-    private String businessTitle;
+    private String lastName;
+
+    @Column
+    private String email;
+
+    @ManyToOne()
+    private Team team;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLES",
@@ -41,12 +41,27 @@ public class User {
                     @JoinColumn(name = "ROLE_ID") })
     private Set<Role> roles;
 
-    public long getId() {
-        return id;
+    public Employed(Integer cc, String username, String password, String phone, String name, String lastName, String email, Team team, Set<Role> roles) {
+        this.cc = cc;
+        this.username = username;
+        this.password = password;
+        this.phone = phone;
+        this.name = name;
+        this.lastName = lastName;
+        this.email = email;
+        this.team = team;
+        this.roles = roles;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public Employed() {
+    }
+
+    public Integer getCc() {
+        return cc;
+    }
+
+    public void setCc(Integer cc) {
+        this.cc = cc;
     }
 
     public String getUsername() {
@@ -65,14 +80,6 @@ public class User {
         this.password = password;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhone() {
         return phone;
     }
@@ -89,12 +96,28 @@ public class User {
         this.name = name;
     }
 
-    public String getBusinessTitle() {
-        return businessTitle;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setBusinessTitle(String businessTitle) {
-        this.businessTitle = businessTitle;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
     public Set<Role> getRoles() {

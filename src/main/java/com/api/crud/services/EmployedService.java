@@ -1,7 +1,9 @@
 package com.api.crud.services;
 
+import com.api.crud.entities.Employed;
 import com.api.crud.entities.User;
-import com.api.crud.repositories.IEmployedRepository;
+import com.api.crud.repository.IEmployedRepository;
+import com.api.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,32 +11,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class EmployedServiceImpl {
+public class EmployedService {
 
     @Autowired
     IEmployedRepository employedRepository;
 
-    public List<User> getEmployees () {
-        List<User> all = employedRepository.findAll();
+    public List<Employed> getEmployees () {
+        List<Employed> all = employedRepository.findAll();
         return all;
     }
 
-    public List<User> saveEmployees(List<User> listEmployees) {
-        List<User> all = employedRepository.saveAll(listEmployees);
+    public List<Employed> saveEmployees(List<Employed> listEmployees) {
+        List<Employed> all = employedRepository.saveAll(listEmployees);
         return all;
     }
 
 
-    public User saveEmployed (User user) {
+    public Employed saveEmployed (Employed user) {
         return employedRepository.save(user);
     }
 
-    public Optional<User> getById (Integer id) {
+    public Optional<Employed> getById (Integer id) {
         return employedRepository.findById(id);
     }
 
-    public User updateById (User request, Integer id) {
-        User aux = employedRepository.findById(id).get();
+    public Employed updateById (Employed request, Integer id) {
+        Employed aux = employedRepository.findById(id).get();
         aux.setName(request.getName());
         aux.setPassword(request.getPassword());
         aux.setEmail(request.getEmail());

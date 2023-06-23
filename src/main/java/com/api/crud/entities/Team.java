@@ -18,7 +18,7 @@ public class Team {
 //    private List<Route> routes;
 
     @OneToMany( mappedBy = "team" )
-    private List<User> userList;
+    private List<Employed> employeesList;
 
     @OneToMany( mappedBy = "team" )
     private List<Assignment> assignments;
@@ -26,10 +26,10 @@ public class Team {
     public Team() {
     }
 
-    public Team(Long id, String name, List<User> userList, List<Assignment> assignments) {
+    public Team(Long id, String name, List<Employed> employeesList, List<Assignment> assignments) {
         this.id = id;
         this.name = name;
-        this.userList = userList;
+        this.employeesList = employeesList;
         this.assignments = assignments;
     }
 
@@ -57,11 +57,11 @@ public class Team {
         this.name = name;
     }
 
-    public List<User> getEmployedList() {
-        return userList;
+    public List<Employed> getEmployedList() {
+        return employeesList;
     }
 
-    public void setEmployedList(List<User> userList) {
-        this.userList = userList;
+    public void setEmployedList(List<Employed> employeesList) {
+        this.employeesList = employeesList;
     }
 }
