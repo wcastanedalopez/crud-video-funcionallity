@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/registration")
+@RequestMapping("api/registration")
 @RepositoryRestResource(path = "registers", collectionResourceRel = "registers")
 @CrossOrigin
 public class RegistrationController {

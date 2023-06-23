@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/route")
+@RequestMapping("/api/route")
 @RepositoryRestResource(path = "routes", collectionResourceRel = "routes")
 @CrossOrigin
 public class RouteController {

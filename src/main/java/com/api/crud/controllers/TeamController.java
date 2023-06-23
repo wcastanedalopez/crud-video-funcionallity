@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/team")
+@RequestMapping("/api/team")
 @RepositoryRestResource(path = "teams", collectionResourceRel = "teams")
 @CrossOrigin
 public class TeamController {

@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/assignment")
+@RequestMapping("/api/assignment")
 @RepositoryRestResource(path = "assignments", collectionResourceRel = "assignments")
 @CrossOrigin
 public class AssignmentController {
