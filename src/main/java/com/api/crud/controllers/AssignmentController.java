@@ -1,6 +1,6 @@
 package com.api.crud.controllers;
 
-import com.api.crud.entities.Assignment;
+import com.api.crud.models.Assignment;
 import com.api.crud.services.AssignmentServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

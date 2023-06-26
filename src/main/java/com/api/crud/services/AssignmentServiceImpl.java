@@ -1,6 +1,6 @@
 package com.api.crud.services;
 
-import com.api.crud.entities.Assignment;
+import com.api.crud.models.Assignment;
 import com.api.crud.repository.IAssignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

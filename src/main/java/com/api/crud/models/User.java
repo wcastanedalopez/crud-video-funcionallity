@@ -1,4 +1,5 @@
-package com.api.crud.entities;
+package com.api.crud.models;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -6,10 +7,11 @@ import jakarta.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "employees")
-public class Employed {
+@Table(name = "users")
+public class User {
     @Id
-    private Integer cc;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private long id;
 
     @Column
     private String username;
@@ -19,18 +21,16 @@ public class Employed {
     private String password;
 
     @Column
+    private String email;
+
+    @Column
     private String phone;
+
     @Column
     private String name;
 
     @Column
-    private String lastName;
-
-    @Column
-    private String email;
-
-    @ManyToOne()
-    private Team team;
+    private String businessTitle;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(name = "USER_ROLES",
@@ -41,27 +41,32 @@ public class Employed {
                     @JoinColumn(name = "ROLE_ID") })
     private Set<Role> roles;
 
-    public Employed(Integer cc, String username, String password, String phone, String name, String lastName, String email, Team team, Set<Role> roles) {
-        this.cc = cc;
+    public User() {
+    }
+
+    public User(String username, String password, String email) {
         this.username = username;
         this.password = password;
+        this.email = email;
+    }
+
+    public User(long id, String username, String password, String email, String phone, String name, String businessTitle, Set<Role> roles) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.email = email;
         this.phone = phone;
         this.name = name;
-        this.lastName = lastName;
-        this.email = email;
-        this.team = team;
+        this.businessTitle = businessTitle;
         this.roles = roles;
     }
 
-    public Employed() {
+    public long getId() {
+        return id;
     }
 
-    public Integer getCc() {
-        return cc;
-    }
-
-    public void setCc(Integer cc) {
-        this.cc = cc;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -80,6 +85,14 @@ public class Employed {
         this.password = password;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -96,28 +109,12 @@ public class Employed {
         this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getBusinessTitle() {
+        return businessTitle;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setBusinessTitle(String businessTitle) {
+        this.businessTitle = businessTitle;
     }
 
     public Set<Role> getRoles() {

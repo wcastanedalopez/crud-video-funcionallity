@@ -1,6 +1,6 @@
 package com.api.crud.controllers;
 
-import com.api.crud.entities.Route;
+import com.api.crud.models.Route;
 import com.api.crud.services.RouteServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

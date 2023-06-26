@@ -1,7 +1,6 @@
 package com.api.crud.controllers;
 
-import com.api.crud.entities.Employed;
-import com.api.crud.entities.User;
+import com.api.crud.models.Employed;
 import com.api.crud.services.EmployedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

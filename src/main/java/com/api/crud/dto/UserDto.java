@@ -1,6 +1,6 @@
 package com.api.crud.dto;
 
-import com.api.crud.entities.User;
+import com.api.crud.models.User;
 
 public class UserDto {
     private String username;
@@ -9,6 +9,12 @@ public class UserDto {
     private String name;
     private String lastName;
     private String email;
+
+    public UserDto(String username, String email, String password) {
+        this.username = username;
+        this.password = password;
+        this.email = email;
+    }
 
     public String getUsername() {
         return username;

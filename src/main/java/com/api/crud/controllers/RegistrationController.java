@@ -1,6 +1,6 @@
 package com.api.crud.controllers;
 
-import com.api.crud.entities.Registration;
+import com.api.crud.models.Registration;
 import com.api.crud.services.RegistrationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

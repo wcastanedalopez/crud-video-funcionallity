@@ -1,9 +1,7 @@
 package com.api.crud.services;
 
-import com.api.crud.entities.Employed;
-import com.api.crud.entities.User;
+import com.api.crud.models.Employed;
 import com.api.crud.repository.IEmployedRepository;
-import com.api.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
 package com.api.crud.services;
 
-import com.api.crud.entities.Route;
+import com.api.crud.models.Route;
 import com.api.crud.repository.IRouteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

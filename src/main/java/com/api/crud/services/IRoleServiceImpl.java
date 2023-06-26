@@ -1,6 +1,7 @@
 package com.api.crud.services;
 
-import com.api.crud.entities.Role;
+import com.api.crud.models.ERole;
+import com.api.crud.models.Role;
 import com.api.crud.repository.IRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ public class IRoleServiceImpl implements IRoleService {
     private IRoleRepository roleRepository;
 
     @Override
-    public Role findByName(String name) {
-        return roleRepository.findRoleByName(name);
+    public Role findByName(ERole name) {
+        return roleRepository.findRoleByName(name).orElse(null);
     }
 }

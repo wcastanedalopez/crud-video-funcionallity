@@ -1,6 +1,6 @@
 package com.api.crud.controllers;
 
-import com.api.crud.entities.Team;
+import com.api.crud.models.Team;
 import com.api.crud.services.TeamServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;

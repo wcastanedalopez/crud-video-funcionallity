@@ -1,6 +1,6 @@
 package com.api.crud.services;
 
-import com.api.crud.entities.Registration;
+import com.api.crud.models.Registration;
 import com.api.crud.repository.IRegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
